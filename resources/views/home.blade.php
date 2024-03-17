@@ -1,3 +1,5 @@
+@extends('layout.layout')
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RotaController;
+use App\Http\Controllers\RotaController; //cadastro//
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [UsuarioController::class, 'index']) ->name('usuario-index');
+Route::get('/cadastro' , [UsuarioController::class , 'cadastro'])->name('usuario-cadastro');
+Route::post('/usuario', [UsuarioController::class, 'store'])->name('usuario-store');
+
 Route::get('/cadastro.html', function(){
-    return view('cadastro',[RotaController::class,'index']);
+    
+    return view('cadastro',[RotaController::class]);
 });
 
 Route::get('/home', function(){
-    return view('home',[HomeController::class,'index']);
+    return view('home',[HomeController::class]);
 });
 
 Route::get('/login', function(){
-    return view('login',[LoginController::class,'index']);
+    return view('login',[LoginController::class]);
 });
